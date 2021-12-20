@@ -110,7 +110,10 @@ export const AuthProvider: FC<AuthProviderProps> = ({
         const user = await userManager.signinCallback().catch(() => {
           return null
         });
-        if(user === null) return
+        if(user === null) {
+          setIsLoading(false);
+          return
+        }
         setUserData(user);
         setIsLoading(false);
         onSignIn && onSignIn(user);

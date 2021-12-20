@@ -146,8 +146,10 @@ exports.AuthProvider = function (_a) {
                             })];
                     case 1:
                         user_1 = _a.sent();
-                        if (user_1 === null)
+                        if (user_1 === null) {
+                            setIsLoading(false);
                             return [2];
+                        }
                         setUserData(user_1);
                         setIsLoading(false);
                         onSignIn && onSignIn(user_1);
